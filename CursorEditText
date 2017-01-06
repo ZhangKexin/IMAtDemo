@@ -1,0 +1,37 @@
+package me.zkx.IMAtDemo;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.widget.EditText;
+
+/**
+ * Created by zkx on 2017/1/6.
+ */
+public class CursorEdittext extends EditText {
+    private int selStart = 0;
+    private int selEnd = 0;
+
+    public CursorEdittext(Context context) {
+        super(context);
+    }
+
+    public CursorEdittext(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public CursorEdittext(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+
+    @Override
+    protected void onSelectionChanged(int selStart, int selEnd) {
+        // Do ur task here.
+        this.selStart = selStart;
+        this.selEnd = selEnd;
+    }
+
+    public int getCursorIndex() {
+        //这里返回selStart其实不太好
+        return selStart;
+    }
+}
